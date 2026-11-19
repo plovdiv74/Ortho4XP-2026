@@ -390,6 +390,14 @@ def build_combined_raster(source, lat, lon, info_only):
                 base,
             )[-1]
         else:
+            UI.lvprint(
+                1,
+                "    WARNING: no elevation data could be obtained for",
+                FNAMES.short_latlon(lat0, (lon0 + 180) % 360 - 180),
+                "from",
+                source,
+                ", altitude 0 is used there.",
+            )
             tmparray = numpy.zeros((base, base), dtype=numpy.float32)
         by = beyond
         ov = overlap
@@ -631,9 +639,10 @@ def ensure_elevation(source, lat, lon, verbose=True):
             (47, 15),
         ):
             resol = 1
+            # file names on the server are case sensitive (e.g. N47E009.zip)
             url = (
                 "http://viewfinderpanoramas.org/dem1/"
-                + os.path.basename(FNAMES.base_file_name(lat, lon)).lower()
+                + os.path.basename(FNAMES.base_file_name(lat, lon))
                 + ".zip"
             )
         else:
