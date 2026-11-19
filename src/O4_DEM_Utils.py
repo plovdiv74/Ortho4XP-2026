@@ -739,6 +739,17 @@ def ensure_elevation(source, lat, lon, verbose=True):
                     with open(out_filename, "wb") as out:
                         UI.vprint(2, "      Extracting", out_filename)
                         out.write(zip_ref.open(f, "r").read())
+        # archives cover several tiles but omit the all-sea ones
+        if not os.path.exists(FNAMES.viewfinderpanorama(lat, lon)):
+            UI.vprint(
+                1,
+                "    The archive",
+                os.path.basename(url),
+                "does not contain",
+                os.path.basename(FNAMES.viewfinderpanorama(lat, lon)),
+                "(usually an all-sea tile).",
+            )
+            return 0
     elif source in ("SRTM", "ALOS"):
         if os.path.exists(FNAMES.elevation_data(source, lat, lon)):
             UI.vprint(
