@@ -8,15 +8,24 @@ import numpy
 from shapely import geometry, ops
 import O4_UI_Utils as UI
 import O4_File_Names as FNAMES
+import O4_OSM_Local as LOCAL
+import O4_Version
 
 overpass_servers = {
-    "DE": "http://overpass-api.de/api/interpreter",
-    "FR": "http://api.openstreetmap.fr/oapi/interpreter",
+    "DE": "https://overpass-api.de/api/interpreter",
     "KU": "https://overpass.kumi.systems/api/interpreter",
-    "RU": "http://overpass.osm.rambler.ru/cgi/interpreter",
+    "PC": "https://overpass.private.coffee/api/interpreter",
 }
 overpass_server_choice = "DE"
 max_osm_tentatives = 8
+# Public Overpass instances reject requests without a meaningful User-Agent.
+overpass_user_agent = (
+    "Ortho4XP/" + O4_Version.version + " (+https://github.com/oscarpilote/Ortho4XP)"
+)
+overpass_timeout = 180  # seconds, server side; the http read timeout is a bit longer
+# Path to a .osm.pbf file, or a directory of them (e.g. Geofabrik extracts).
+# When set, OSM data is read from it locally instead of from Overpass.
+osm_pbf_source = ""
 
 ################################################################################
 class OSM_layer:
@@ -435,7 +444,12 @@ def OSM_queries_to_OSM_layer(
                     old_cached_data_filename, input_tags, target_tags
                 )
                 continue
-        UI.vprint(1, "    * Downloading OSM data for", query)
+        UI.vprint(
+            1,
+            "    * Reading local OSM data for" if osm_pbf_source
+            else "    * Downloading OSM data for",
+            query,
+        )
         response = get_overpass_data(
             query, (lat, lon, lat + 1, lon + 1), server_code
         )
@@ -511,27 +525,38 @@ def OSM_query_to_OSM_layer(
 
 ################################################################################
 def get_overpass_data(query, bbox, server_code=None):
+    if osm_pbf_source and isinstance(bbox, tuple) and len(bbox) == 4:
+        return LOCAL.get_osm_data(query, bbox, osm_pbf_source)
+    if isinstance(query, str):
+        overpass_query = query + str(bbox) + ";"
+    else:  # query is a tuple
+        overpass_query = "".join([x + str(bbox) + ";" for x in query])
+    overpass_query = (
+        "[out:xml][timeout:" + str(overpass_timeout) + "];("
+        + overpass_query + ");(._;>>;);out meta;"
+    )
+    headers = {"User-Agent": overpass_user_agent}
     tentative = 1
     while True:
         s = requests.Session()
         true_server_code = server_code
-        if not server_code:
+        if true_server_code not in overpass_servers:
             true_server_code = (
-                random.choice(list(overpass_servers.keys()))
-                if overpass_server_choice == "random"
-                else overpass_server_choice
+                overpass_server_choice
+                if overpass_server_choice in overpass_servers
+                else random.choice(list(overpass_servers.keys()))
             )
         base_url = overpass_servers[true_server_code]
-        if isinstance(query, str):
-            overpass_query = query + str(bbox) + ";"
-        else:  # query is a tuple
-            overpass_query = "".join([x + str(bbox) + ";" for x in query])
-        url = base_url + "?data=(" + overpass_query + ");(._;>>;);out meta;"
-        UI.vprint(3, url)
+        UI.vprint(3, base_url, overpass_query)
         try:
-            r = s.get(url, timeout=60)
+            r = s.post(
+                base_url,
+                data={"data": overpass_query},
+                headers=headers,
+                timeout=(30, overpass_timeout + 30),
+            )
             UI.vprint(3, "OSM response status :", r)
-            if "200" in str(r):
+            if r.status_code == 200:
                 if (
                     b"</osm>" not in r.content[-10:]
                     and b"</OSM>" not in r.content[-10:]
@@ -562,16 +587,18 @@ def get_overpass_data(query, bbox, server_code=None):
                     1,
                     "        OSM server",
                     true_server_code,
-                    "rejected our query, new tentative in",
+                    "rejected our query (HTTP " + str(r.status_code) + "),",
+                    "new tentative in",
                     2 ** tentative,
                     "sec...",
                 )
-        except:
+                UI.vprint(2, "        ", r.text[:200].strip())
+        except Exception as e:
             UI.vprint(
                 1,
                 "        OSM server",
                 true_server_code,
-                "was too busy, new tentative in",
+                "did not answer (" + type(e).__name__ + "), new tentative in",
                 2 ** tentative,
                 "sec...",
             )

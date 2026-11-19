@@ -27,6 +27,8 @@ Ortho4XP builds orthophoto scenery tiles (1°×1° lat/lon) for the X-Plane flig
 
 **Shared state / UI** — `O4_UI_Utils.py` holds process-wide globals: `red_flag` (user abort; long loops must check it and return), `is_working` (re-entrancy guard), `verbosity`, `cleaning_level`. Use `UI.vprint` / `UI.lvprint` (log to `Ortho4XP.log`) rather than `print`. `UI.gui` is `None` in CLI mode, so GUI calls must be guarded.
 
+**OSM data sources** — all OSM requests go through `OSM.get_overpass_data(query, bbox)`, which returns raw Overpass-style XML parsed line by line by `OSM_layer.update_dicosm` (the exact XML line layout matters). Results are cached per tile in `OSM_data/` as `.osm.bz2` and reused before any request. If `osm_pbf_source` is set (a `.osm.pbf` file or a directory of Geofabrik extracts), `O4_OSM_Local.py` answers the same queries offline with pyosmium instead of Overpass. Public Overpass servers reject requests without a real User-Agent and are often overloaded.
+
 **Imagery providers** — data-driven, not code: `Providers/**/*.lay` files (key=value: `url_template`, `grid_type`, `max_zl`, `imagery_dir`, ...) and `.comb` files for combined providers, loaded by `IMG.initialize_*_dict()`. Python hooks for custom URLs live in `Providers/O4_Custom_URL.py` (the Providers dir is on `sys.path`). `Extents/` and `Filters/` hold provider coverage polygons and color filters.
 
 **File naming** — all tile/path naming (e.g. `zOrtho4XP_+45-002`, `Earth nav data/+40-010/+45-002.dsf`) goes through `O4_File_Names.py`; reuse its helpers.

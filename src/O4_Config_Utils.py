@@ -107,6 +107,12 @@ a particular server.",
         "default": "",
         "hint": 'Your X-Plane Custom Scenery. Used only for "1-click" creation (or deletion) of symbolic links from Ortho4XP tiles to there.',
     },
+    "osm_pbf_source": {
+        "module": "OSM",
+        "type": str,
+        "default": "",
+        "hint": "Offline OSM data source used instead of the Overpass servers: either a .osm.pbf file or a directory containing several of them (e.g. regional extracts downloaded from download.geofabrik.de). In a directory, all files whose header bounding box intersects the tile are used and merged, so put there every region the tile touches. The first use of a tile scans the whole source files (about 0.4 million nodes per second), so prefer the smallest available sub-regions over whole-country files. Leave empty to use Overpass. Already cached OSM data in OSM_data is still used first. Requires the python module osmium (pip install osmium).",
+    },
     "custom_overlay_src": {
         "module": "OVL",
         "type": str,
@@ -366,9 +372,10 @@ list_app_vars = [
     "ovl_exclude_net",
     "custom_scenery_dir",
     "custom_overlay_src",
+    "osm_pbf_source",
 ]
-gui_app_vars_short = list_app_vars[:-2]
-gui_app_vars_long = list_app_vars[-2:]
+gui_app_vars_short = list_app_vars[:-3]
+gui_app_vars_long = list_app_vars[-3:]
 
 list_vector_vars = [
     "apt_smoothing_pix",
