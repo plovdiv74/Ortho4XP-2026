@@ -698,6 +698,20 @@ def ensure_elevation(source, lat, lon, verbose=True):
         ):
             UI.vprint(2, "   Recycling ", FNAMES.viewfinderpanorama(lat, lon))
             return 1
+        # marker left when the archive was found not to contain the tile
+        absent_marker = FNAMES.viewfinderpanorama(lat, lon) + ".absent"
+        if os.path.exists(absent_marker):
+            UI.vprint(
+                2,
+                "   ",
+                os.path.basename(FNAMES.viewfinderpanorama(lat, lon)),
+                "is known to be absent from",
+                os.path.basename(url),
+                "(delete",
+                absent_marker,
+                "to check again).",
+            )
+            return 0
         UI.vprint(
             1,
             "    Downloading ",
@@ -749,6 +763,12 @@ def ensure_elevation(source, lat, lon, verbose=True):
                 os.path.basename(FNAMES.viewfinderpanorama(lat, lon)),
                 "(usually an all-sea tile).",
             )
+            try:
+                os.makedirs(os.path.dirname(absent_marker), exist_ok=True)
+                with open(absent_marker, "w") as marker:
+                    marker.write(os.path.basename(url) + "\n")
+            except OSError:
+                pass
             return 0
     elif source in ("SRTM", "ALOS"):
         if os.path.exists(FNAMES.elevation_data(source, lat, lon)):
