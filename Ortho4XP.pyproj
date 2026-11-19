@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{39870418-12db-449d-80da-7af9c22550a0}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>Ortho4XP.py</StartupFile>
+    <SearchPath>src\</SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="community_server.txt" />
+    <Content Include="Extents\Austria\Tirol.png" />
+    <Content Include="Extents\Belgium\Vlanderen.png" />
+    <Content Include="Extents\Belgium\Wallonie.png" />
+    <Content Include="Extents\Italy\AltoAdige.png" />
+    <Content Include="Extents\Italy\Trentino.png" />
+    <Content Include="Extents\Italy\Veneto.png" />
+    <Content Include="Extents\LowRes\Andorra.png" />
+    <Content Include="Extents\LowRes\Austria.png" />
+    <Content Include="Extents\LowRes\Belgium.png" />
+    <Content Include="Extents\LowRes\Croatia.png" />
+    <Content Include="Extents\LowRes\CRO_2016.png" />
+    <Content Include="Extents\LowRes\CRO_2017.png" />
+    <Content Include="Extents\LowRes\CRO_add2011.png" />
+    <Content Include="Extents\LowRes\Czechia.png" />
+    <Content Include="Extents\LowRes\Denmark.png" />
+    <Content Include="Extents\LowRes\Finland.png" />
+    <Content Include="Extents\LowRes\France.png" />
+    <Content Include="Extents\LowRes\Germany.png" />
+    <Content Include="Extents\LowRes\Hungary.png" />
+    <Content Include="Extents\LowRes\Ireland.png" />
+    <Content Include="Extents\LowRes\Italy.png" />
+    <Content Include="Extents\LowRes\Liechtenstein.png" />
+    <Content Include="Extents\LowRes\Luxembourg.png" />
+    <Content Include="Extents\LowRes\Netherlands.png" />
+    <Content Include="Extents\LowRes\Norway.png" />
+    <Content Include="Extents\LowRes\Poland.png" />
+    <Content Include="Extents\LowRes\Portugal.png" />
+    <Content Include="Extents\LowRes\Slovakia.png" />
+    <Content Include="Extents\LowRes\Slovenia.png" />
+    <Content Include="Extents\LowRes\Spain.png" />
+    <Content Include="Extents\LowRes\Sweden.png" />
+    <Content Include="Extents\LowRes\Switzerland.png" />
+    <Content Include="Extents\LowRes\UK.png" />
+    <Content Include="Extents\Switzerland\Valais.png" />
+    <Content Include="Extents\Switzerland\Zurich.png" />
+    <Content Include="Install_Instructions.txt" />
+    <Content Include="Licence\copyright.txt" />
+    <Content Include="Licence\gpl.txt" />
+    <Content Include="Previews\Earth\Earth2_ZL6_0_0.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_0_1.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_0_2.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_0_3.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_0_4.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_0_5.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_0_6.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_0_7.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_1_0.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_1_1.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_1_2.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_1_3.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_1_4.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_1_5.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_1_6.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_1_7.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_2_0.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_2_1.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_2_2.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_2_3.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_2_4.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_2_5.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_2_6.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_2_7.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_3_0.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_3_1.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_3_2.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_3_3.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_3_4.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_3_5.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_3_6.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_3_7.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_4_0.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_4_1.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_4_2.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_4_3.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_4_4.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_4_5.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_4_6.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_4_7.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_5_0.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_5_1.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_5_2.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_5_3.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_5_4.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_5_5.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_5_6.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_5_7.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_6_0.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_6_1.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_6_2.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_6_3.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_6_4.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_6_5.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_6_6.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_6_7.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_7_0.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_7_1.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_7_2.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_7_3.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_7_4.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_7_5.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_7_6.jpg" />
+    <Content Include="Previews\Earth\Earth2_ZL6_7_7.jpg" />
+    <Content Include="requirements.txt" />
+    <Content Include="src\Unused\C\rtree\README.txt" />
+    <Content Include="Utils\CMakeLists.txt" />
+    <Content Include="Utils\Config.gif" />
+    <Content Include="Utils\Earth.gif" />
+    <Content Include="Utils\Earth\Earth2_ZL6_0_0.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_0_1.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_0_2.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_0_3.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_0_4.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_0_5.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_0_6.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_0_7.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_1_0.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_1_1.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_1_2.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_1_3.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_1_4.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_1_5.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_1_6.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_1_7.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_2_0.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_2_1.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_2_2.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_2_3.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_2_4.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_2_5.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_2_6.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_2_7.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_3_0.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_3_1.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_3_2.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_3_3.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_3_4.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_3_5.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_3_6.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_3_7.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_4_0.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_4_1.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_4_2.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_4_3.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_4_4.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_4_5.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_4_6.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_4_7.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_5_0.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_5_1.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_5_2.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_5_3.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_5_4.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_5_5.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_5_6.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_5_7.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_6_0.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_6_1.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_6_2.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_6_3.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_6_4.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_6_5.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_6_6.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_6_7.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_7_0.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_7_1.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_7_2.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_7_3.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_7_4.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_7_5.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_7_6.jpg" />
+    <Content Include="Utils\Earth\Earth2_ZL6_7_7.jpg" />
+    <Content Include="Utils\Exit.gif" />
+    <Content Include="Utils\Folder.gif" />
+    <Content Include="Utils\Loupe.gif" />
+    <Content Include="Utils\Stop.gif" />
+    <Content Include="Utils\water_transition.png" />
+    <Content Include="Utils\world_tiles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Ortho4XP.py" />
+    <Compile Include="Providers\O4_Custom_URL.py" />
+    <Compile Include="src\O4_Airport_Utils.py" />
+    <Compile Include="src\O4_Bathymetry.py" />
+    <Compile Include="src\O4_Config_Utils.py" />
+    <Compile Include="src\O4_DEM_Utils.py" />
+    <Compile Include="src\O4_DSF_Utils.py" />
+    <Compile Include="src\O4_File_Names.py" />
+    <Compile Include="src\O4_Geotag.py" />
+    <Compile Include="src\O4_Geo_Utils.py" />
+    <Compile Include="src\O4_GUI_Utils.py" />
+    <Compile Include="src\O4_Imagery_Utils.py" />
+    <Compile Include="src\O4_Mask_Utils.py" />
+    <Compile Include="src\O4_Mesh_Utils.py" />
+    <Compile Include="src\O4_OSM_Local.py" />
+    <Compile Include="src\O4_OSM_Utils.py" />
+    <Compile Include="src\O4_Overlay_Utils.py" />
+    <Compile Include="src\O4_Parallel_Utils.py" />
+    <Compile Include="src\O4_Recut_Water.py" />
+    <Compile Include="src\O4_Scenery_Utils.py" />
+    <Compile Include="src\O4_Tile_Utils.py" />
+    <Compile Include="src\O4_UI_Utils.py" />
+    <Compile Include="src\O4_Vector_Map.py" />
+    <Compile Include="src\O4_Vector_Utils.py" />
+    <Compile Include="src\O4_Version.py" />
+    <Compile Include="src\Unused\build_house.py" />
+    <Compile Include="src\Unused\C\setup.py" />
+    <Compile Include="src\Unused\Earth_Orbit_Textures.py" />
+    <Compile Include="src\Unused\O4_buildings.py" />
+    <Compile Include="src\Unused\O4_Copernicus.py" />
+    <Compile Include="src\Unused\O4_Forest.py" />
+    <Compile Include="src\Unused\O4_OverlayDSF_Utils.py" />
+    <Compile Include="src\Unused\O4_Rtree_Utils.py" />
+    <Compile Include="src\Unused\O4_Shapefile_Utils.py" />
+    <Compile Include="Utils\run\build.py" />
+    <Compile Include="Utils\run\configure.py" />
+    <Compile Include="Utils\run\install.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extents\" />
+    <Folder Include="Extents\Austria" />
+    <Folder Include="Extents\Belgium" />
+    <Folder Include="Extents\Italy" />
+    <Folder Include="Extents\LowRes" />
+    <Folder Include="Extents\Switzerland" />
+    <Folder Include="Licence" />
+    <Folder Include="Previews\" />
+    <Folder Include="Previews\Earth" />
+    <Folder Include="Providers" />
+    <Folder Include="src" />
+    <Folder Include="src\Unused" />
+    <Folder Include="src\Unused\C" />
+    <Folder Include="src\Unused\C\rtree" />
+    <Folder Include="Utils" />
+    <Folder Include="Utils\Earth" />
+    <Folder Include="Utils\run" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>env</Id>
+      <Version>3.12</Version>
+      <Description>env (Python 3.12 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>

@@ -8,6 +8,11 @@ env/
 tmp/
 Elevation_data/
 OSM_data/
+Tiles/
+Orthophotos/
+Masks/
+Ortho4XP.cfg
+Ortho4XP.cfg.bak
 
 # User-specific files
 *.rsuser
